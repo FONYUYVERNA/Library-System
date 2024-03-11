@@ -44,11 +44,8 @@ public class Patron  {
     }
     //allows for return of book
     void returnBook(Book book) {
-book.borrowBook();
-    if(book.isAvailable){
-        book.returnBook();
-        books.remove(book);
-    }
+            books.remove(book);
+            book.returnBook();
     }
 
 

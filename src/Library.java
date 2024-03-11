@@ -42,22 +42,26 @@ public class Library{
     void borrowBook(Patron patron, Book book)
     {
         if(patrons.contains(patron) && book.isAvailable){
+            patron.borrowBook(book);
             System.out.println("\nBorrow successful:"+ patron.toString() + "' borrowed '" + book.toString() + "'\n");
             book.borrowBook();
-        } else
+        }
+        else
         {
-            System.out.println("\nBorrow unsuccessful:"+ patron.toString() + "' is no longer a member\n");
+            System.out.println("\nBorrow unsuccessful: either'"+ patron.toString() + "' is no longer a member or book is unavailable\n");
         }
 
     }
     //handles the return process, updating book availability and patron's borrowed books list
     void returnBook(Patron patron, Book book){
-        if(patrons.contains(patron)) {
+        patron.returnBook(book);
 
+        if(patrons.contains(patron) && book.isAvailable) {
+            System.out.println("\nReturn successful: '"+ patron.toString() + "' has returned '" +book.toString()+ "'");
         }
         else
         {
-            System.out.println("\nReturn unsuccessful:"+ patron.toString() + "' is no longer a member");
+            System.out.println("\nReturn unsuccessful: either '"+ patron.toString() + "' is no longer a member or book is not in library");
         }
 
     }

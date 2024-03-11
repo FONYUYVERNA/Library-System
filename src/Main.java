@@ -57,16 +57,6 @@ public class Main {
      System.out.print("\n");
 
 /*Library member wishes to borrow the following books*/
-        patron1.borrowBook(book4);
-        patron1.borrowBook(book1);
-        patron1.borrowBook(book7);
-        patron2.borrowBook(book3);
-        patron2.borrowBook(book1);
-     //1,book1);
-        System.out.print("\nPatron1's borrow list:\n");
-     System.out.println(patron1.getBorrowedBooks());
-        System.out.print("\nPatron2's borrow list:\n");
-        System.out.println(patron2.getBorrowedBooks());
 
         library.borrowBook(patron2,book4);
         library.borrowBook(patron1,book1);
@@ -74,18 +64,28 @@ public class Main {
         library.borrowBook(patron4,book4);
         library.borrowBook(patron1,book1);
         library.borrowBook(patron4,book7);
-     /*returning borrowed books
-        library.returnBook(patron2,book4);
-        library.returnBook(patron4,book7);
-        library.returnBook(patron1,book1);
-        library.returnBook(patron2,book3);
-        library.returnBook(patron3,book1);
-        System.out.print("\nNew list of books found in Library borrowed books have been returned:\n");
-        System.out.println(Library.books.toString());
+        library.borrowBook(patron4,book6);
+        System.out.print("\nPatron1's borrow list:\n");
+        System.out.println(patron1.getBorrowedBooks());
+        System.out.print("\nPatron2's borrow list:\n");
+        System.out.println(patron2.getBorrowedBooks());
+        System.out.print("\nPatron4's borrow list:\n");
+        System.out.println(patron4.getBorrowedBooks());
 
-        /*returns books borrowed
-        Book.borrowBook();
-        /*Shows list of books returned
-       Book.returnBook();*/
+     /*returning borrowed books*/
+        library.returnBook(patron2,book4);
+        library.borrowBook(patron4,book4);
+        System.out.print("\nPatron4's borrow list:\n");
+        System.out.println(patron4.getBorrowedBooks());
+        System.out.print("\nPatron2's borrow list:\n");
+        System.out.println(patron2.getBorrowedBooks());
+
+        library.returnBook(patron1,book3);
+        library.returnBook(patron4,book5);
+        System.out.print("\nPatron1's borrow list:\n");
+        System.out.println(patron1.getBorrowedBooks());
+        System.out.print("\nPatron4's borrow list:\n");
+        System.out.println(patron4.getBorrowedBooks());
+        
     }
 }
