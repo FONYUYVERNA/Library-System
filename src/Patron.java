@@ -44,8 +44,13 @@ public class Patron  {
     }
     //allows for return of book
     void returnBook(Book book) {
+        if(books.contains(book)){
             books.remove(book);
-            book.returnBook();
+            book.isAvailable=true;
+        }
+          else{
+              book.isAvailable=false;
+        }
     }
 
 
